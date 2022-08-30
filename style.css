@@ -324,9 +324,9 @@ section:nth-child(2n+1){
  #timeline-divider {
     position: absolute;
     width: 0;
-    height: 66%;
+    height: 72%;
     border: 1px dashed #0096fa6b;
-    top: 10%;
+    top: 7%;
     left: 50%;
     color: #433E3F;
 }
@@ -339,7 +339,7 @@ section:nth-child(2n+1){
 
 #timeline-divider i {
     transform: rotate(90deg);
-    margin-top: -35px;
+    margin-top: -28px;
     display: block;
     color: #2857a4;
 }
@@ -374,6 +374,7 @@ section:nth-child(2n+1){
 }
 
 /* Start of Projects Section  */
+
 #portfolio-container {
     box-sizing: border-box;
     display: flex;
