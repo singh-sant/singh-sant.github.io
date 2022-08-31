@@ -385,7 +385,7 @@ section:nth-child(2n+1){
 }
 
 .portfolio-image-container {
-    max-width: 300px;
+    max-width: 400px;
     overflow: hidden;
     margin: 10px;
     background-size: cover;
@@ -407,6 +407,10 @@ section:nth-child(2n+1){
     color: transparent;
     text-align: center;
     padding: 10px;
+}
+
+.portfolio-details p {
+    font-size: 20px;
 }
 
 .portfolio-image-container:hover {
