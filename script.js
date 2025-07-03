@@ -67,23 +67,104 @@ for (var i = 0; i < navMenuAnchorTags.length; i++) {
     navMenuAnchorTags[i].addEventListener('click', function (event) {
         event.preventDefault();
         var targetSectionID = this.textContent.trim().toLowerCase();
-        console.log(this.textContent);
         var targetSection = document.getElementById(targetSectionID);
-        console.log(targetSection);
-        //    interval = setInterval(scrollVertically, 20, targetSection);
-
-        interval = setInterval(function () {
-            scrollVertically(targetSection);
-        }, 20);
+        
+        // Using native smooth scroll for better performance
+        targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
     });
 }
 
+// Add scroll-to-top button functionality
+const scrollToTopBtn = document.createElement('button');
+scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+scrollToTopBtn.className = 'scroll-to-top';
+document.body.appendChild(scrollToTopBtn);
 
-function scrollVertically(targetSection) {
-    var targetSectionCoordinates = targetSection.getBoundingClientRect();
-    if (targetSectionCoordinates.top <= 0) {
-        clearInterval(interval);
-        return;
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Show/hide scroll-to-top button based on scroll position
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        scrollToTopBtn.style.display = 'block';
+    } else {
+        scrollToTopBtn.style.display = 'none';
     }
-    window.scrollBy(0, 50);
+});
+
+// Form validation
+function validateForm() {
+    const form = document.getElementById('contact-form');
+    const name = form.querySelector('input[name="name"]');
+    const email = form.querySelector('input[name="email"]');
+    const message = form.querySelector('textarea[name="message"]');
+    
+    // Reset previous error states
+    clearErrors();
+    
+    let isValid = true;
+    
+    // Name validation
+    if (name.value.trim().length < 2) {
+        showError(name, 'Name must be at least 2 characters long');
+        isValid = false;
+    }
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value)) {
+        showError(email, 'Please enter a valid email address');
+        isValid = false;
+    }
+    
+    // Message validation
+    if (message.value.trim().length < 10) {
+        showError(message, 'Message must be at least 10 characters long');
+        isValid = false;
+    }
+    
+    if (isValid) {
+        // You can add your form submission logic here
+        alert('Thank you for your message! I will get back to you soon.');
+    }
+    
+    return false; // Prevent form submission for now
 }
+
+function showError(element, message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    errorDiv.style.color = 'red';
+    errorDiv.style.fontSize = '0.8rem';
+    errorDiv.style.marginTop = '5px';
+    element.parentNode.insertBefore(errorDiv, element.nextSibling);
+    element.style.borderColor = 'red';
+}
+
+function clearErrors() {
+    const errorMessages = document.querySelectorAll('.error-message');
+    errorMessages.forEach(error => error.remove());
+    
+    const formElements = document.querySelectorAll('#contact-form input, #contact-form textarea');
+    formElements.forEach(element => {
+        element.style.borderColor = '';
+    });
+}
+
+// Add lazy loading for images
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            this.classList.add('loaded');
+        });
+    });
+});

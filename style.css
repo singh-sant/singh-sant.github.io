@@ -1,8 +1,29 @@
-/*Start of Body */
-body{
+/* Add at the start of the file */
+:root {
+    --primary-color: #2857a4;
+    --secondary-color: #ec4d1c;
+    --text-color: #333;
+    --background-color: #fff;
+    --section-bg-alt: #9e9b9b29;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #3867b4;
+        --secondary-color: #ff5e2e;
+        --text-color: #f0f0f0;
+        --background-color: #1a1a1a;
+        --section-bg-alt: #2a2a2a;
+    }
+}
+
+body {
     margin: 0px;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 30px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease;
 }
 
 body::-webkit-scrollbar {
@@ -265,6 +286,21 @@ section:nth-child(2n+1){
 
 .sixty-percent {
     width: 60%;
+    height: inherit;
+}
+
+.ninety-percent {
+    width: 90%;
+    height: inherit;
+}
+
+.seventy-five-percent {
+    width: 75%;
+    height: inherit;
+}
+
+.sixty-five-percent {
+    width: 65%;
     height: inherit;
 }
 
@@ -600,4 +636,127 @@ button:focus {
         width: 80%;
         margin: 10%;
     }
+}
+
+/* Add these new styles at the end of the file */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.scroll-to-top:hover {
+    opacity: 1;
+}
+
+/* Modern card styling for portfolio items */
+.portfolio-image-container {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--background-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.portfolio-image-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+/* Skill bar animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.skill-progress > div {
+    animation: slideIn 0.8s ease-out forwards;
+}
+
+/* Contact form improvements */
+#contact-form input,
+#contact-form textarea {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(40, 87, 164, 0.2);
+    outline: none;
+}
+
+/* Loading animation for images */
+img {
+    transition: opacity 0.3s ease;
+}
+
+img[loading] {
+    opacity: 0;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+/* Resume Section Styles */
+.resume-container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resume-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.resume-content p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+.resume-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.resume-button:hover {
+    background-color: #3867b4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.resume-button i {
+    margin-right: 10px;
 }
