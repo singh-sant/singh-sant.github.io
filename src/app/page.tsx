@@ -3,6 +3,21 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
+const projects = [
+  {
+    title: "Portfolio Website",
+    description: "Modern portfolio website built with Next.js and Framer Motion",
+    github: "https://github.com/singh-sant/singh-sant.github.io",
+    demo: "https://singh-sant.github.io"
+  },
+  {
+    title: "Connect4 Game",
+    description: "Interactive Connect4 game implementation",
+    github: "https://github.com/singh-sant/connect4-game",
+    demo: null
+  }
+]
+
 export default function Home() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 })
   const [cursorDotPos, setCursorDotPos] = useState({ x: 0, y: 0 })
@@ -185,26 +200,18 @@ export default function Home() {
               transition={{ delay: 0.4, duration: 0.6 }}
             >
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:santnsingh@gmail.com"
                 className="hover-underline"
               >
                 Email
               </a>
               <a
-                href="https://github.com/sn-singh"
+                href="https://github.com/singh-sant"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover-underline"
               >
                 GitHub
-              </a>
-              <a
-                href="https://linkedin.com/in/sn-singh"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover-underline"
-              >
-                LinkedIn
               </a>
             </motion.div>
           </div>
@@ -212,19 +219,4 @@ export default function Home() {
       </main>
     </>
   )
-}
-
-const projects = [
-  {
-    title: 'Portfolio Website',
-    description: 'Modern portfolio website built with Next.js and Framer Motion.',
-    github: 'https://github.com/sn-singh/sn-singh.github.io',
-    demo: 'https://sn-singh.github.io'
-  },
-  {
-    title: 'Connect 4 Game',
-    description: 'Interactive Connect 4 game built with JavaFX.',
-    github: 'https://github.com/sn-singh/connect-4',
-  },
-  // Add more projects here
-] 
+} 
