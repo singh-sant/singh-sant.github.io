@@ -7,6 +7,10 @@
     --dot-size: 1px;
     --dot-space: 22px;
   }
+
+  body {
+    @apply bg-dark text-light;
+  }
 }
 
 /* Dot matrix background */
@@ -26,33 +30,38 @@ html {
 }
 
 /* Custom cursor */
-* {
-  cursor: none;
-}
+@media (min-width: 768px) {
+  * {
+    cursor: none;
+  }
 
-.cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 999;
-}
+  .cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 999;
+    transition: transform 0.1s ease;
+  }
 
-.cursor-dot {
-  width: 4px;
-  height: 4px;
-  background-color: #fff;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 999;
+  .cursor-dot {
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 999;
+    transition: transform 0.1s ease;
+  }
 }
 
 /* Text glitch effect */
 .glitch {
   position: relative;
+  color: #fff;
 }
 
 .glitch::before,
@@ -64,6 +73,7 @@ html {
   width: 100%;
   height: 100%;
   clip: rect(0, 900px, 0, 0);
+  opacity: 0.5;
 }
 
 .glitch::before {
@@ -100,6 +110,7 @@ html {
 .hover-underline {
   position: relative;
   text-decoration: none;
+  @apply text-light;
 }
 
 .hover-underline::after {

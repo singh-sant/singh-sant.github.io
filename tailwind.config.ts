@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        mono: ['Space Mono', 'monospace'],
-        display: ['Major Mono Display', 'monospace'],
+        mono: ['var(--font-space-mono)', 'monospace'],
+        display: ['var(--font-major-mono)', 'monospace'],
       },
       colors: {
         dark: '#000000',
