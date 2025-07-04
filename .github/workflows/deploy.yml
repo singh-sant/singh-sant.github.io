@@ -10,46 +10,88 @@ permissions:
   pages: write
   id-token: write
 
+# Environment variables
+env:
+  NODE_VERSION: "18.19.0"
+  NEXT_TELEMETRY_DISABLED: 1
+  PNPM_VERSION: "8.15.1"
+
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.1
         with:
-          node-version: "18"
+          fetch-depth: 1
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.0.1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
           
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v4.0.0
         
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm ci --prefer-offline --no-audit
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        
+      - name: Check for linting errors
+        run: npm run lint
+        continue-on-error: true
         
       - name: Build with Next.js
-        run: npm run build
+        run: |
+          npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: ''
+          CI: true
+          NODE_ENV: production
         
       - name: Add .nojekyll file
-        run: touch out/.nojekyll
+        run: |
+          touch out/.nojekyll
+          echo "Portfolio website built with Next.js" > out/README.md
+        
+      - name: Optimize output
+        run: |
+          find out -name '*.map' -delete
         
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3.0.1
         with:
           path: ./out
+          retention-days: 7
 
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v4.0.4
+        with:
+          timeout: 600000
+          error_count: 3
+      
+      - name: Deployment Status
+        if: always()
+        run: |
+          if [ "${{ steps.deployment.outcome }}" == "success" ]; then
+            echo "✅ Deployment successful!"
+            echo "🌐 Site available at: ${{ steps.deployment.outputs.page_url }}"
+          else
+            echo "❌ Deployment failed"
+            echo "Check the logs above for more details"
+          fi 
