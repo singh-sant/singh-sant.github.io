@@ -14,6 +14,8 @@ const config: Config = {
         display: ['var(--font-major-mono)', 'monospace'],
       },
       colors: {
+        background: 'rgb(var(--background-rgb))',
+        foreground: 'rgb(var(--foreground-rgb))',
         dark: '#000000',
         light: '#ffffff',
         accent: '#333333',

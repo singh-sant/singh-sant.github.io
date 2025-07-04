@@ -3,24 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-rgb: 0, 0, 0;
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+  --dot-size: 0.75px;
+  --dot-space: 28px;
+  --dot-opacity: 0.3;
 }
 
 .dark {
   --foreground-rgb: 255, 255, 255;
   --background-rgb: 0, 0, 0;
-}
-
-.light {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
+  --dot-opacity: 0.25;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   cursor: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 @media (pointer: coarse) {
@@ -53,6 +53,7 @@ body {
   position: fixed;
   pointer-events: none;
   z-index: 999;
+  transition: background-color 0.3s ease;
 }
 
 .noise {
@@ -65,13 +66,8 @@ body {
 }
 
 @layer base {
-  :root {
-    --dot-size: 1px;
-    --dot-space: 22px;
-  }
-
-  body {
-    @apply bg-dark text-light;
+  * {
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
   }
 
   section {
@@ -89,12 +85,18 @@ body {
   }
 
   .project-card:hover {
-    @apply border-light transform -translate-y-1;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    @apply border-foreground transform -translate-y-1;
+    box-shadow: 0 4px 20px rgba(var(--foreground-rgb), 0.1);
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-light via-accent to-light;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      to right,
+      rgb(var(--foreground-rgb)),
+      rgb(var(--accent-rgb)),
+      rgb(var(--foreground-rgb))
+    );
     background-size: 200% auto;
     animation: shine 8s linear infinite;
   }
@@ -111,13 +113,28 @@ body {
 
 /* Dot matrix background */
 .dot-matrix {
-  background-image: radial-gradient(
-    circle at center,
-    #333 var(--dot-size),
-    transparent var(--dot-size)
-  );
+  background-image: 
+    radial-gradient(
+      circle at center,
+      rgba(var(--foreground-rgb), var(--dot-opacity)) var(--dot-size),
+      transparent calc(var(--dot-size) + 0.5px)
+    );
   background-size: var(--dot-space) var(--dot-space);
   background-position: center;
+  position: relative;
+}
+
+.dot-matrix::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  background-position: calc(var(--dot-space) / 2) calc(var(--dot-space) / 2);
+  opacity: 0.7;
+  z-index: -1;
 }
 
 /* Smooth scrolling */
@@ -128,7 +145,7 @@ html {
 /* Text glitch effect */
 .glitch {
   position: relative;
-  color: #fff;
+  color: rgb(var(--foreground-rgb));
 }
 
 .glitch::before,
@@ -177,7 +194,7 @@ html {
 .hover-underline {
   position: relative;
   text-decoration: none;
-  @apply text-light;
+  @apply text-foreground;
 }
 
 .hover-underline::after {

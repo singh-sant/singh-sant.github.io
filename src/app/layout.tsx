@@ -26,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${spaceMono.variable} ${majorMonoDisplay.variable} font-mono bg-dark text-light`}>
+    <html lang="en">
+      <body className={`${spaceMono.variable} ${majorMonoDisplay.variable} font-mono`}>
         {children}
         <Analytics />
       </body>
