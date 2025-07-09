@@ -16,24 +16,30 @@ export default async function Icon() {
       // ImageResponse JSX element
       <div
         style={{
-          fontSize: 24,
-          background: 'black',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           borderRadius: '50%',
-          color: 'white',
+          overflow: 'hidden',
+          background: '#000',
         }}
       >
-        SS
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/my-image.png"
+          alt="Sant Singh"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
       </div>
     ),
     // ImageResponse options
     {
-      // For convenience, we can re-use the exported size metadata
-      // config to also set the ImageResponse's width and height.
       ...size,
     }
   )

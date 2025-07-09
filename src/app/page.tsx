@@ -233,19 +233,19 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <div className="border border-accent p-6">
+              <div className="skill-card">
                 <h3 className="font-display text-sm mb-2">Programming</h3>
                 <p className="font-mono text-xs">Scala / Python / PySpark / SQL</p>
               </div>
-              <div className="border border-accent p-6">
+              <div className="skill-card">
                 <h3 className="font-display text-sm mb-2">Big Data & ETL</h3>
                 <p className="font-mono text-xs">Spark / Kafka / Airflow / Hadoop</p>
               </div>
-              <div className="border border-accent p-6">
+              <div className="skill-card">
                 <h3 className="font-display text-sm mb-2">Data Storage</h3>
                 <p className="font-mono text-xs">Databricks / Snowflake / BigQuery</p>
               </div>
-              <div className="border border-accent p-6">
+              <div className="skill-card">
                 <h3 className="font-display text-sm mb-2">Cloud Platforms</h3>
                 <p className="font-mono text-xs">Azure / GCP / AWS</p>
               </div>
@@ -257,19 +257,19 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
-              <div className="border border-accent p-6">
+              <div className="skill-card">
                 <h3 className="font-display text-sm mb-2">DevOps & CI/CD</h3>
                 <p className="font-mono text-xs">Docker / K8s / Jenkins / Terraform</p>
               </div>
-              <div className="border border-accent p-6">
+              <div className="skill-card">
                 <h3 className="font-display text-sm mb-2">Data Governance</h3>
                 <p className="font-mono text-xs">DataHub / Great Expectations</p>
               </div>
-              <div className="border border-accent p-6">
+              <div className="skill-card">
                 <h3 className="font-display text-sm mb-2">Monitoring & BI</h3>
                 <p className="font-mono text-xs">Grafana / Power BI</p>
               </div>
-              <div className="border border-accent p-6">
+              <div className="skill-card">
                 <h3 className="font-display text-sm mb-2">Certifications</h3>
                 <p className="font-mono text-xs">Databricks Data Engineer</p>
               </div>
