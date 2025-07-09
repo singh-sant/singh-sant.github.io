@@ -135,7 +135,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              Software Engineer
+              Data Engineer
             </motion.p>
             <motion.div
               className="flex justify-center gap-6 mt-8"
@@ -176,6 +176,18 @@ export default function Home() {
                   <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"></path>
                 </svg>
               </a>
+              <a
+                href="https://docs.google.com/document/d/1F1rwCALeU65Ut4BXI7Z6BO9Zj0rXuf47DmWUCD30Uvc/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-accent transition-colors duration-300"
+                aria-label="Resume"
+              >
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                  <path d="M8 12h8v2H8zm0 4h8v2H8zm0-8h2v2H8z"/>
+                </svg>
+              </a>
             </motion.div>
           </div>
         </section>
@@ -199,10 +211,10 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              I am a Software Engineer with deep expertise in both application development and data engineering. 
-              I specialize in building scalable applications and robust data pipelines that solve complex business challenges. 
-              My dual focus allows me to bridge the gap between software development and data engineering, creating 
-              end-to-end solutions that combine efficient data processing with powerful user experiences.
+              I am a Certified Data Engineer with 2+ years of experience in designing and developing scalable, resilient real-time 
+              and batch data pipelines. I specialize in building data mesh architectures and implementing robust data solutions using 
+              modern cloud platforms. My expertise spans across PySpark, Scala, and SQL, with strong experience in integrating 
+              large-scale batch and streaming data using Databricks, Snowflake, and BigQuery.
             </motion.p>
             <motion.div
               className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12"
@@ -212,20 +224,20 @@ export default function Home() {
               transition={{ delay: 0.4, duration: 0.6 }}
             >
               <div className="border border-accent p-6">
-                <h3 className="font-display text-sm mb-2">Languages</h3>
-                <p className="font-mono text-xs">Scala / Python / Java / JavaScript</p>
+                <h3 className="font-display text-sm mb-2">Programming</h3>
+                <p className="font-mono text-xs">Scala / Python / PySpark / SQL</p>
               </div>
               <div className="border border-accent p-6">
-                <h3 className="font-display text-sm mb-2">Frontend</h3>
-                <p className="font-mono text-xs">TypeScript / React / Next.js</p>
+                <h3 className="font-display text-sm mb-2">Big Data & ETL</h3>
+                <p className="font-mono text-xs">Spark / Kafka / Airflow / Hadoop</p>
               </div>
               <div className="border border-accent p-6">
-                <h3 className="font-display text-sm mb-2">Backend</h3>
-                <p className="font-mono text-xs">Node.js / Spring Boot / Express</p>
+                <h3 className="font-display text-sm mb-2">Data Storage</h3>
+                <p className="font-mono text-xs">Databricks / Snowflake / BigQuery</p>
               </div>
               <div className="border border-accent p-6">
-                <h3 className="font-display text-sm mb-2">DevOps</h3>
-                <p className="font-mono text-xs">Docker / K8s / CI/CD</p>
+                <h3 className="font-display text-sm mb-2">Cloud Platforms</h3>
+                <p className="font-mono text-xs">Azure / GCP / AWS</p>
               </div>
             </motion.div>
             <motion.div
@@ -236,20 +248,20 @@ export default function Home() {
               transition={{ delay: 0.6, duration: 0.6 }}
             >
               <div className="border border-accent p-6">
-                <h3 className="font-display text-sm mb-2">Big Data</h3>
-                <p className="font-mono text-xs">Spark / Hadoop / MapReduce</p>
+                <h3 className="font-display text-sm mb-2">DevOps & CI/CD</h3>
+                <p className="font-mono text-xs">Docker / K8s / Jenkins / Terraform</p>
               </div>
               <div className="border border-accent p-6">
-                <h3 className="font-display text-sm mb-2">Data Pipeline</h3>
-                <p className="font-mono text-xs">Airflow / Kafka / ETL</p>
+                <h3 className="font-display text-sm mb-2">Data Governance</h3>
+                <p className="font-mono text-xs">DataHub / Great Expectations</p>
               </div>
               <div className="border border-accent p-6">
-                <h3 className="font-display text-sm mb-2">Data Storage</h3>
-                <p className="font-mono text-xs">Snowflake / MongoDB / PostgreSQL</p>
+                <h3 className="font-display text-sm mb-2">Monitoring & BI</h3>
+                <p className="font-mono text-xs">Grafana / Power BI</p>
               </div>
               <div className="border border-accent p-6">
-                <h3 className="font-display text-sm mb-2">Cloud</h3>
-                <p className="font-mono text-xs">AWS / GCP / Azure</p>
+                <h3 className="font-display text-sm mb-2">Certifications</h3>
+                <p className="font-mono text-xs">Databricks Data Engineer</p>
               </div>
             </motion.div>
           </div>
@@ -375,6 +387,18 @@ export default function Home() {
                 >
                   <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"></path>
+                  </svg>
+                </a>
+                <a
+                  href="https://docs.google.com/document/d/1F1rwCALeU65Ut4BXI7Z6BO9Zj0rXuf47DmWUCD30Uvc/edit?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-accent transition-colors duration-300"
+                  aria-label="Resume"
+                >
+                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                    <path d="M8 12h8v2H8zm0 4h8v2H8zm0-8h2v2H8z"/>
                   </svg>
                 </a>
               </div>

@@ -16,8 +16,8 @@ const majorMonoDisplay = Major_Mono_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'Sant Singh | Software Engineer',
-  description: 'Software Engineer specializing in building exceptional digital experiences',
+  title: 'Sant Singh | Data Engineer',
+  description: 'Data Engineer specializing in building scalable data pipelines and analytics solutions',
 }
 
 export default function RootLayout({

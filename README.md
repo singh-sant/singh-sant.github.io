@@ -1,6 +1,6 @@
 # Sant Singh's Portfolio
 
-A modern, minimalist portfolio website built with Next.js, TypeScript, and Framer Motion.
+A modern, minimalist portfolio website showcasing my work as a Data Engineer.
 
 ## Features
 
@@ -14,10 +14,21 @@ A modern, minimalist portfolio website built with Next.js, TypeScript, and Frame
 
 ## Tech Stack
 
+### Website
 - Next.js 14
 - TypeScript
 - Tailwind CSS
 - Framer Motion
+
+### Data Engineering Stack
+- Programming: Scala, Python, PySpark, SQL
+- Big Data & ETL: Apache Spark, Kafka, Airflow, Hadoop
+- Data Storage: Databricks, Snowflake, BigQuery, MySQL
+- Cloud Platforms: Azure (ADF, ADLS, Event Hub), GCP (DataProc, Composer, Pub/Sub), AWS (S3)
+- DevOps & CI/CD: Docker, Kubernetes, Jenkins, Terraform, Git
+- Data Governance: DataHub, Great Expectations
+- Monitoring & BI: Grafana, Power BI
+- Certifications: Databricks Certified Data Engineer Associate
 
 ## Project Structure
 
