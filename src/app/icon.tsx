@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/server'
+import { ImageResponse } from 'next/og'
 
 // Route segment config
 export const runtime = 'edge'
@@ -10,7 +10,7 @@ export const size = {
 }
 
 // Image generation
-export default function Icon() {
+export default async function Icon() {
   return new ImageResponse(
     (
       // ImageResponse JSX element
