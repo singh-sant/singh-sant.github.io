@@ -58,18 +58,28 @@ const ScrollToTop = () => {
   )
 }
 
-const projects = [
+type Project = {
+  title: string;
+  description: string;
+  techStack: string;
+  github?: string;
+  demo?: string;
+}
+
+const projects: Project[] = [
   {
-    title: "Portfolio Website",
-    description: "Modern portfolio website built with Next.js and Framer Motion",
-    github: "https://github.com/singh-sant/singh-sant.github.io",
-    demo: "https://singh-sant.github.io"
+    title: "Campaign Optimization Engine",
+    description: "Built a Spark-based data pipeline for campaign optimization using Google Cloud. Developed ETL workflows for data aggregation and model preparation. Integrated Druid for real-time data serving.",
+    techStack: "Spark, Scala, PySpark, Airflow, GCS, BigQuery, DataProc, Druid, APIs",
+    github: undefined,
+    demo: undefined
   },
   {
-    title: "Connect4 Game",
-    description: "Interactive Connect4 game implementation",
-    github: "https://github.com/singh-sant/connect4-game",
-    demo: null
+    title: "Data Mesh Architecture",
+    description: "Implemented decentralized Data Mesh architecture with domain-specific data ownership. Built reusable data products using Databricks Delta Lake and enabled secure data sharing with Delta Sharing.",
+    techStack: "PySpark, Scala, GCP, Databricks, Great Expectations, DataHub, SQL, ETL",
+    github: undefined,
+    demo: undefined
   }
 ]
 
@@ -291,15 +301,18 @@ export default function Home() {
                 >
                   <h3 className="font-display text-lg mb-4">{project.title}</h3>
                   <p className="font-mono text-sm mb-4">{project.description}</p>
+                  <p className="font-mono text-xs text-accent mb-4">Tech Stack: {project.techStack}</p>
                   <div className="flex gap-6">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover-underline text-sm"
-                    >
-                      GitHub
-                    </a>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover-underline text-sm"
+                      >
+                        GitHub
+                      </a>
+                    )}
                     {project.demo && (
                       <a
                         href={project.demo}
